@@ -17,7 +17,7 @@ function Todo({paras}) {
   }
   const editFunc = ()=>setIsEditing(()=>true);
   const closeFunc = ()=>setIsEditing(()=>false)
-  const saveFunc = id=>{
+  const saveFunc = id=>{//save edited task
     
     const inp = taskInput.current.value
     if(!inp){
