@@ -3,7 +3,7 @@ import { HiSaveAs } from "react-icons/hi";
 import { MdOutlineCancel,MdDelete } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
 import { RxCross1 } from "react-icons/rx";
-import { TodoContext } from '../../App';
+import { TodoContext } from '../App';
 
 function Todo({paras}) {
   const taskInput = useRef(null)
@@ -11,7 +11,7 @@ function Todo({paras}) {
   const [isEditing, setIsEditing] = useState(false)
   const {task,setTodos,todos,setProgress} = useContext(TodoContext)
   task.isEditing = isEditing
-  const deleteFunc = id=> setTodos(t=>t.filter(task=>task.id !== id))const deleteFunc = id=> setTodos(t=>t.filter(task=>task.id !== id))
+  const deleteFunc = id=> setTodos(t=>t.filter(task=>task.id !== id))
   const checkFunc = e=> {
     task.isChecked = e.target.checked
     setProgress(()=>(todos.filter(item=>item.isChecked).length/todos.length)*100 +"%")
@@ -23,7 +23,7 @@ function Todo({paras}) {
     const inp = taskInput.current.value
     if(!inp){
       errorMsg.current.classList.toggle("hidden")
-      setTimeout(()=>errorMsg.current.classList.toggle("hidden"),1800)
+      setTimeout(()=>errorMsg.current.classList.toggle("hidden"),1000)
       return 
     }
     
@@ -49,7 +49,7 @@ function Todo({paras}) {
                 />
               </div>
                 <div 
-                  className="hidden  text-red-500 errorMsg capitalize text-center"
+                  className="hidden text-red-500 errorMsg capitalize text-center"
                   ref={errorMsg}
                 >please input a Task</div>
               <div className="btn-section justify-center pt-5">
@@ -68,7 +68,7 @@ function Todo({paras}) {
                 onChange={e=>checkFunc(e)}
                 defaultChecked={task.isChecked}
               />
-              <div className="task capitalize px-2">{task.content }</div>
+              <div className="task capitalize">{task.content }</div>
             </label>
             
           </div>
@@ -77,7 +77,10 @@ function Todo({paras}) {
               className="btn edit-btn"
               onClick={()=>editFunc()}
             ><FaEdit/></button>
-            <DeleteBtn/>
+            <button 
+              className="btn delete-btn "
+              onClick={()=>deleteFunc(task.id)}
+            ><MdDelete/></button>
           </div>
       </li>
     </>

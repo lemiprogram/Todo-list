@@ -2,7 +2,6 @@ import {  createContext, useEffect, useRef, useState } from 'react'
 import './index.css'
 import './App.css'
 import { CgAdd } from "react-icons/cg";
-import { FaFilter, FaRandom } from "react-icons/fa";
 import Todo from './Components/Todo/Todo';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -40,25 +39,19 @@ function App() {
         <div className="card w-[500px]">
           <div className="heading">Todos</div>
           <div className="flex justify-between">
-            <div className="todos w-[90%] my-3 h-[400px] overflow-y-scroll flex flex-col gap-1" ref={todoList}>{todos.map(task=>
-              <TodoContext.Provider value={{task,todos,setTodos,setProgress}}>
-                <Todo/>
-              </TodoContext.Provider >
-            )}
-            </div>
+            <div className="todos w-[90%] my-3 h-[400px] overflow-y-scroll flex flex-col gap-1" ref={todoList}>{todos.map(task=><TodoContext.Provider value={{task,todos,setTodos,setProgress}}>
+              <Todo/>
+            </TodoContext.Provider >)}</div>
             <div className="progress  h-[50%] w-4 rounded-full p-[2.5px] ">
               <div className="progressBar  w-4 rounded-full " style={todos.length?{height:progress}:{height:0}}></div>
             </div>
           </div>
           <div className="btn-section justify-around">
+            <button className="btn add-todo" onClick={()=>addTodoFunc("New Todo")}><CgAdd/></button>
             <button 
-              className="btn addTodo-btn" 
-              onClick={()=>addTodoFunc("New Todo")}
-            ><CgAdd/></button>
-            <button 
-              className='btn randomTodo-btn'
+              className='btn'
               onClick={()=>addApiTodos()}
-            ><FaRandom/> </button>
+            >Random </button>
           </div>
         </div>
       </div>
