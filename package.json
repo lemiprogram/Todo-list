@@ -1,5 +1,5 @@
 {
-  "name": "todo-app",
+  "name": "react-week3",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -11,7 +11,11 @@
   },
   "dependencies": {
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "react-icons": "^5.5.0",
+    "require": "^2.4.20",
+    "uuid": "^11.1.0",
+    "uuidv4": "^6.2.13"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",
