@@ -4,6 +4,7 @@ import './App.css'
 import { CgAdd } from "react-icons/cg";
 import Todo from './Components/Todo/Todo';
 import { v4 as uuidv4 } from 'uuid';
+import { FaRandom } from "react-icons/fa";
 
 export const TodoContext = createContext()
 function App() {
@@ -46,12 +47,12 @@ function App() {
               <div className="progressBar  w-4 rounded-full " style={todos.length?{height:progress}:{height:0}}></div>
             </div>
           </div>
-          <div className="btn-section justify-around">
+          <div className="btn-section justify-center gap-20">
             <button className="btn add-todo" onClick={()=>addTodoFunc("New Todo")}><CgAdd/></button>
             <button 
               className='btn'
               onClick={()=>addApiTodos()}
-            >Random </button>
+            ><FaRandom/> </button>
           </div>
         </div>
       </div>

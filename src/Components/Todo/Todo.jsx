@@ -4,7 +4,6 @@ import { MdOutlineCancel,MdDelete } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
 import { RxCross1 } from "react-icons/rx";
 import { TodoContext } from '../../App';
-
 function Todo({paras}) {
   const taskInput = useRef(null)
   const errorMsg = useRef(null)
