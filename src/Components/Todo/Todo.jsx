@@ -16,7 +16,7 @@ function Todo({paras}) {
     task.isChecked = e.target.checked
     setProgress(()=>(todos.filter(item=>item.isChecked).length/todos.length)*100 +"%")
   }
-  const editFunc = ()=>setIsEditing(()=>true)
+  const editFunc = ()=>setIsEditing(()=>true);
   const closeFunc = ()=>setIsEditing(()=>false)
   const saveFunc = id=>{
     
